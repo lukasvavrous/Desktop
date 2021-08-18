@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:PersonalApp"                   
              StartupUri="MainWindow.xaml">
   <Application.Resources>
-    
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Components/MenuButtonComponent.xaml"></ResourceDictionary>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
   </Application.Resources>
 </Application>

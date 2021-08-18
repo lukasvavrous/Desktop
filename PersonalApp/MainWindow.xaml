@@ -5,33 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:VM="clr-namespace:PersonalApp.ViewModels"
         xmlns:local="clr-namespace:PersonalApp"        
-        AllowsTransparency="False"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        Height="650" Width="800">
 
   <Window.DataContext>
     <VM:MainViewModel/>
   </Window.DataContext>
+  <Border Background="#272537" CornerRadius="20">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="200"></ColumnDefinition>
+        <ColumnDefinition></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75"></RowDefinition>
+        <RowDefinition></RowDefinition>
+      </Grid.RowDefinitions>
 
-  <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition></ColumnDefinition>
-      <ColumnDefinition></ColumnDefinition>
-      <ColumnDefinition></ColumnDefinition>
-      <ColumnDefinition></ColumnDefinition>
-      <ColumnDefinition></ColumnDefinition>
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="35"></RowDefinition>
-      <RowDefinition Height="*"></RowDefinition>
-    </Grid.RowDefinitions>
+      <TextBlock Text="Desktop App"
+                 Foreground="White"
+                 FontSize="14"  
+                 Margin="0,25,0,20"
+                 TextAlignment="Center"/>
 
-    <Button Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding Path=Nav_Notes_Click}"     Content="Notes"             ></Button>
-    <Button Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding Path=Nav_Accounts_Click}"  Content="Accounts"          ></Button>
-    <Button Grid.Row="0" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding Path=Nav_Users_Click}"     Content="User"              ></Button>
-    <Button Grid.Row="0" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding Path=Nav_ReadDb_Click}"    Content="Read db"           ></Button>
-    <Button Grid.Row="0" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding Path=Nav_Youtube_Click}"   Content="Youtube convertor" ></Button>
+      <StackPanel Grid.Row="1">
+        <RadioButton Content="Notes" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonComponent}" Command="{Binding Path=Nav_Notes_Click}"></RadioButton>
+        <RadioButton Content="Accounts" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonComponent}" Command="{Binding Path=Nav_Accounts_Click}"></RadioButton>
+        <RadioButton Content="User" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonComponent}" Command="{Binding Path=Nav_Users_Click}" ></RadioButton>
+        <RadioButton Content="Read db" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonComponent}" Command="{Binding Path=Nav_ReadDb_Click}"></RadioButton>
+        <RadioButton Content="Youtube convertor" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonComponent}" Command="{Binding Path=Nav_Youtube_Click}"></RadioButton>
+      </StackPanel>
 
-    <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="1" Grid.ColumnSpan="5"/>
-  </Grid>
+      <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="1" Grid.Column="1"/>
+    </Grid>
+  </Border>
 </Window>

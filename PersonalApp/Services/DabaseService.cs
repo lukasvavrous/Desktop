@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -10,12 +11,23 @@ namespace PersonalApp.Services
 {
   class DabaseService
   {
-    string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LocalDatabase;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
+    private readonly string connectionString;
     
-    SqlConnection cnn;
+    private readonly SqlConnection cnn;
+
+    //ConnectionStringSettingsCollection settings;
+      
 
     public DabaseService()
     {
+   //   settings = ConfigurationManager.ConnectionStrings;
+
+   //   if (settings != null)
+			//{
+   //     connectionString = settings.CurrentConfiguration.ConnectionStrings.ConnectionStrings[0].ConnectionString;
+   //   }
+      
+      connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LocalDatabase;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
       cnn = new SqlConnection(connectionString);
     }
 
